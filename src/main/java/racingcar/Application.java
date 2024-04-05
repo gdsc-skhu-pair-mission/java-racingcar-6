@@ -1,7 +1,22 @@
 package racingcar;
 
+import racingcar.controller.RacingGame;
+import racingcar.view.Inputview;
+import racingcar.view.Outputview;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        // InputView와 OutputView 인스턴스 생성
+        Inputview inputview = new Inputview();
+        Outputview outputview = new Outputview();
+
+        // RacingGame 인스턴스화 시 InputView와 OutputView 객체 전달
+        RacingGame racingGame = new RacingGame(inputview, outputview);
+
+        // 게임 시작
+        racingGame.StartGame();
+        // 게임 진행
+        // racingGame.GameProcess();
+        racingGame.게임출력1회();
     }
 }
