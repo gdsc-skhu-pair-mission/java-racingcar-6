@@ -16,7 +16,9 @@ public class Application {
         // 게임 시작
         racingGame.StartGame();
         // 게임 진행
-        // racingGame.GameProcess();
-        racingGame.게임출력1회();
+        racingGame.GameProcess();
+        // 우승자 판별
+        racingGame.winner();
+
     }
 }
