@@ -21,14 +21,13 @@ public class Car {
     }
 
     public Car(String carName) {
-        this.name=carName;
+        this.name = carName;
 
     }
+
     RandomValue randomValue = new RandomValue();
-    public int CarMove(){
-        if (randomValue.randomValue>=4){
-            distance++;
-        }
-        return distance;
+
+    public void CarMove() {
+        this.distance++;
     }
 }
