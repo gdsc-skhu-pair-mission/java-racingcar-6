@@ -31,17 +31,17 @@ class RacingTest {
     }
 
     @Test
-    void 시도_회수만큼_라운드_진행() {
+    void 라운드_진행() {
         // given
         Cars cars = new Cars(List.of(testCar1, testCar2));
         Racing racing = new Racing(cars, MoveRule.ALWAYS_MOVE);
 
         // when
-        racing.race(5);
+        racing.start();
 
         // then
         for (int position : racing.getCars().getPositions()) {
-            assertThat(position).isEqualTo(5);
+            assertThat(position).isEqualTo(1);
         }
     }
 

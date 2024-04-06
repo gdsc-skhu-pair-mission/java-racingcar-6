@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.MoveRule;
+import racingcar.model.Racing;
 import racingcar.view.InputView;
 
 public class RacingCarGameController {
@@ -13,6 +15,12 @@ public class RacingCarGameController {
         Cars cars = createCars(carNames);
 
         int tryCount = getTryCount();
+
+        Racing racing = new Racing(cars, MoveRule.RANDOM_4_OR_ABOVE);
+
+        for (int i = 0; i < tryCount; i++) {
+            racing.start();
+        }
     }
 
     private List<String> getCarNames() {
