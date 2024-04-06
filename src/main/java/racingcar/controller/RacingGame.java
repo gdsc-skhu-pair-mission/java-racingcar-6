@@ -51,10 +51,12 @@ public class RacingGame {
                     car.CarMove();
 
                 }
+                // 자동차 이동한 거리 출력
                 System.out.printf("%s : %s\n", car.getName(), outputview.GoMessage().repeat(car.getDistance()));
 
 
             }
+            // 게임 횟수 구분하기 위해 개행 추가
             System.out.println("");
         }
     }
