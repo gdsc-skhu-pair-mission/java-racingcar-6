@@ -1,10 +1,12 @@
 package racingcar.controller;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.model.Car;
 import racingcar.view.Inputview;
 import racingcar.view.Outputview;
 
 import java.util.List;
+import java.util.Random;
 
 public class RacingGame {
     private List<Car> cars;
@@ -22,10 +24,7 @@ public class RacingGame {
     public void StartGame() {
         outputview.StartMessage();
         cars = inputview.CarNameInput();
-        outputview.CountMessage();
-        inputview.countInput();
 
-        outputview.ResultMessage();
 
     }
 
@@ -39,13 +38,24 @@ public class RacingGame {
 //    }
 
     public void 게임출력1회() {
-        for (Car car : cars) {
-            //  각 Car 객체를 이동시키는 로직 구현
-            System.out.println(car);
 
-            for (int i = 0; i < car.CarMove(); i++) {
-                outputview.GoMessage();
+        //  각 Car 객체를 이동시키는 로직 구현
+
+        outputview.CountMessage();
+        int count = inputview.countInput();
+        outputview.ResultMessage();
+        for (int i = 0; i < count; i++) {
+            for (Car car : cars) {
+                int randomNumber = Randoms.pickNumberInRange(0, 9);
+                if (randomNumber > 4) {
+                    car.CarMove();
+
+                }
+                System.out.printf("%s : %s\n", car.getName(), outputview.GoMessage().repeat(car.getDistance()));
+
+
             }
+            System.out.println("");
         }
     }
 
