@@ -14,12 +14,11 @@ public class Car {
 
     public Car(String carName) {
         this.name = carName;
-
     }
 
-    RandomValue randomValue = new RandomValue();
-
+    // 자동차 전진하는 거리를 합산하는 메소드
     public void CarMove() {
         this.distance++;
     }
+
 }
