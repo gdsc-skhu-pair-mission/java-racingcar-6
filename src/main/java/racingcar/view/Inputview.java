@@ -3,21 +3,29 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Arrays;
+import java.util.Set;
 
 
 public class Inputview {
     public List<Car> CarNameInput() {
-
+        // 자동차 이름 입력 받기
         String carName = Console.readLine();
+        // 입력 받은 자동차 이름을 리스트에 쉼표(,)를 기준으로 잘라서 대입
         List<String> carNames = Arrays.stream(carName.split(",")).toList();
+
+        // 입력받은 자동차 이름으로 Car 객체 생성해서 객체 리스트에 담기
         List<Car> cars = new ArrayList<>();
         for (String ca : carNames) {
             Car car = new Car(ca);
             cars.add(car);
-
         }
+        // 자동차 이름 중복 검사
+        ValidateCarName(carNames);
+        // 자동차 객체 리스트 반환
         return cars;
-
     }
 
     public int countInput() {
