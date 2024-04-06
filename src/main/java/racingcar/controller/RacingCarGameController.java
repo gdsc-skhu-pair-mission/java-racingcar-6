@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Cars;
+import racingcar.model.Judgement;
 import racingcar.model.MoveRule;
 import racingcar.model.Racing;
 import racingcar.view.InputView;
@@ -24,6 +25,8 @@ public class RacingCarGameController {
             racing.start();
             printProcess(cars.getNames(), cars.getPositions());
         }
+
+        OutputView.printWinners(Judgement.getWinners(cars));
     }
 
     private List<String> getCarNames() {
