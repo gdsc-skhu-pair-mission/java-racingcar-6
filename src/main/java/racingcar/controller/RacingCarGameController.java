@@ -7,6 +7,7 @@ import racingcar.model.Cars;
 import racingcar.model.MoveRule;
 import racingcar.model.Racing;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 public class RacingCarGameController {
 
@@ -18,8 +19,10 @@ public class RacingCarGameController {
 
         Racing racing = new Racing(cars, MoveRule.RANDOM_4_OR_ABOVE);
 
+        OutputView.printResultHeader();
         for (int i = 0; i < tryCount; i++) {
             racing.start();
+            printProcess(cars.getNames(), cars.getPositions());
         }
     }
 
@@ -62,4 +65,10 @@ public class RacingCarGameController {
         return true;
     }
 
+    private void printProcess(List<String> carNames, List<Integer> positions) {
+        for (int i = 0; i < carNames.size(); i++) {
+            OutputView.printCarPosition(carNames.get(i), positions.get(i));
+        }
+        OutputView.printNewLine();
+    }
 }
