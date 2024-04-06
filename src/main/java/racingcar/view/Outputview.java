@@ -13,7 +13,7 @@ public class Outputview {
         System.out.println("실행 결과");
     }
 
-    public void GoMessage(){
-        System.out.print("-");
+    public String GoMessage(){
+        return "-";
     }
 }
