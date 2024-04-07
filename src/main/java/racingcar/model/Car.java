@@ -1,7 +1,8 @@
 package racingcar.model;
 
 public class Car {
-    private final String name;
+    public static final int MOVE_STANDARD = 4;
+    private String name;
     private int position;
 
     public Car(String name) {
@@ -16,11 +17,12 @@ public class Car {
         return this.position;
     }
 
-    public void moveForward() {
+    public void move() {
         this.position++;
     }
 
     public String getPositionBar() {
         return "-".repeat(getPosition());
     }
+
 }
