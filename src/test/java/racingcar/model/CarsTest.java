@@ -37,7 +37,7 @@ class CarsTest {
         Cars cars = new Cars(testCars);
 
         // when
-        cars.moveEligibleCars(MoveRule.ALWAYS_MOVE);
+        cars.moveEligibleCars(MoveStrategy.ALWAYS_MOVE);
 
         // then
         for (int position : cars.getPositions()) {

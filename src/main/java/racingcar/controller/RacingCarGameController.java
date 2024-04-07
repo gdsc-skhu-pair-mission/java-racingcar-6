@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.Judgement;
-import racingcar.model.MoveRule;
+import racingcar.model.MoveStrategy;
 import racingcar.model.Racing;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -14,11 +14,11 @@ public class RacingCarGameController {
 
     public void startGame() {
         List<String> carNames = getCarNames();
-        Cars cars = createCars(carNames);
+        Cars cars = generateCars(carNames);
 
         int tryCount = getTryCount();
 
-        Racing racing = new Racing(cars, MoveRule.RANDOM_4_OR_ABOVE);
+        Racing racing = new Racing(cars, MoveStrategy.RANDOM_4_OR_ABOVE);
 
         OutputView.printResultHeader();
         for (int i = 0; i < tryCount; i++) {
@@ -38,7 +38,7 @@ public class RacingCarGameController {
         return List.of(carNames.split(","));
     }
 
-    private Cars createCars(List<String> carNames) {
+    private Cars generateCars(List<String> carNames) {
         return new Cars(carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList()));
@@ -69,8 +69,9 @@ public class RacingCarGameController {
     }
 
     private void printProcess(List<String> carNames, List<Integer> positions) {
-        for (int i = 0; i < carNames.size(); i++) {
-            OutputView.printCarPosition(carNames.get(i), positions.get(i));
+        for (String carName : carNames) {
+            int position = positions.get(carNames.indexOf(carName));
+            OutputView.printCarPosition(carName, position);
         }
         OutputView.printNewLine();
     }

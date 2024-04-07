@@ -3,15 +3,15 @@ package racingcar.model;
 public class Racing {
 
     private final Cars cars;
-    private final MoveRule moveRule;
+    private final MoveStrategy moveStrategy;
 
-    public Racing(Cars cars, MoveRule moveRule) {
+    public Racing(Cars cars, MoveStrategy moveStrategy) {
         this.cars = cars;
-        this.moveRule = moveRule;
+        this.moveStrategy = moveStrategy;
     }
 
     public void start() {
-        cars.moveEligibleCars(moveRule);
+        cars.moveEligibleCars(moveStrategy);
     }
 
     public Cars getCars() {

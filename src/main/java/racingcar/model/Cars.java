@@ -1,13 +1,8 @@
 package racingcar.model;
 
-import racingcar.util.RandomNumberGenerator;
-
 import java.util.List;
 
 public class Cars {
-
-    private static final int MIN_BOUND = 0;
-    private static final int MAX_BOUND = 9;
 
     private final List<Car> cars;
 
@@ -15,12 +10,10 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void moveEligibleCars(MoveRule moveRule) {
-        for (Car car : cars) {
-            if (moveRule.canMove(RandomNumberGenerator.generateRandomNumber(MIN_BOUND, MAX_BOUND))) {
-                car.moveForward();
-            }
-        }
+    public void moveEligibleCars(MoveStrategy moveStrategy) {
+        cars.stream()
+                .filter(car -> moveStrategy.canMove())
+                .forEach(Car::moveForward);
     }
 
     public List<Integer> getPositions() {

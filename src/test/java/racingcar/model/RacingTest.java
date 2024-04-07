@@ -24,7 +24,7 @@ class RacingTest {
         Cars cars = new Cars(List.of(testCar1, testCar2));
 
         // when
-        Racing racing = new Racing(cars, MoveRule.ALWAYS_MOVE);
+        Racing racing = new Racing(cars, MoveStrategy.ALWAYS_MOVE);
 
         // then
         assertThat(racing).isNotNull();
@@ -34,7 +34,7 @@ class RacingTest {
     void 라운드_진행() {
         // given
         Cars cars = new Cars(List.of(testCar1, testCar2));
-        Racing racing = new Racing(cars, MoveRule.ALWAYS_MOVE);
+        Racing racing = new Racing(cars, MoveStrategy.ALWAYS_MOVE);
 
         // when
         racing.start();
