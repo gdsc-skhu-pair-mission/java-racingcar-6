@@ -8,7 +8,7 @@ public class TestNumberGenerator implements NumberGenerator {
     }
 
     @Override
-    public int generate(int startInclusive, int endInclusive) {
+    public int generate(int startNumber, int endNumber) {
         return fixedValue;
     }
 }
