@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class RandomNumberGenerator implements NumberGenerator {
     @Override
-    public int generate(int startInclusive, int endInclusive) {
-        return Randoms.pickNumberInRange(startInclusive, endInclusive);
+    public int generate(int startNumber, int endNumber) {
+        return Randoms.pickNumberInRange(startNumber, endNumber);
     }
 }
