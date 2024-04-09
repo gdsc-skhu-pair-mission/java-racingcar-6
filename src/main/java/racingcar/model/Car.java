@@ -8,27 +8,17 @@ public class Car {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getDistance() {
         return distance;
     }
 
-    public void setDistance(int distance) {
-        this.distance = distance;
-    }
-
     public Car(String carName) {
-        this.name=carName;
+        this.name = carName;
+    }
 
+    // 자동차 전진하는 거리를 합산하는 메소드
+    public void CarMove() {
+        this.distance++;
     }
-    RandomValue randomValue = new RandomValue();
-    public int CarMove(){
-        if (randomValue.randomValue>=4){
-            distance++;
-        }
-        return distance;
-    }
+
 }
