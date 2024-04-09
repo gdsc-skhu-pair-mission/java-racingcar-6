@@ -24,10 +24,17 @@ public class InputValidator {
         }
     }
 
-    public static void validateTryCount(int tryCount) {
-        if (tryCount < 1) {
-            throw new IllegalArgumentException("자연수를 입력해주세요");
+    public static void validateTryCount(String tryCount) {
+        if (!tryCount.matches("\\d+")) {
+            throw new IllegalArgumentException("자연수를 입력해주세요.");
         }
+        int parseTryCount = Integer.parseInt(tryCount);
+        validateNaturalNumber(parseTryCount);
     }
 
+    private static void validateNaturalNumber(int tryCount) {
+        if (tryCount < 1) {
+            throw new IllegalArgumentException("자연수를 입력해주세요.");
+        }
+    }
 }
