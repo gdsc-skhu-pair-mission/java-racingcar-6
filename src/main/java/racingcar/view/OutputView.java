@@ -12,9 +12,9 @@ public class OutputView {
     }
 
     public void roundResult(List<Car> carList) {
-        carList.forEach(car -> {
-            System.out.println(car.getName() + " : " + car.getPositionBar());
-        });
+        carList.forEach(car ->
+            System.out.println(car.getName() + " : " + car.getPositionBar())
+        );
         System.out.println();
     }
 
