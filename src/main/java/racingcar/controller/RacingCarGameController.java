@@ -22,7 +22,6 @@ public class RacingCarGameController {
         checkInputCarNames(inputCarNames);
 
         List<String> carNames= Parser.parseStringToList(inputCarNames);
-        System.out.println(carNames);
 
         for (String carName : carNames) {
             cars.add(new Car(carName));
