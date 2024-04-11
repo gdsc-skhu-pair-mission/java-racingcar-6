@@ -1,3 +1,16 @@
+# 1차 리뷰 후 개선 방향
+- [ ] 객체를 직접 생성하는 것과 의존성 주입의 차이 알아보기
+- [ ] 불필요한 코드 삭제하기
+- [ ] 불변 객체 알아보고 적용하기
+- [ ] Referee 클래스의 judgementWinnerCars() 메소드; 예외처리 선행 후 로직 진행으로 변경
+- [ ] enum 장점 알아보기
+- [ ] 유틸 클래스 알아보기(https://velog.io/@devrunner21/Static%EA%B3%BC-Utility-Class)
+- [ ] Validator 업무 과중 해결하기
+- [ ] 의미 전달에 어려움이 있는 부분 상수화하기
+- [ ] 테스트 코드 명명규칙 알아보기(https://dzone.com/articles/7-popular-unit-test-naming)
+- [ ] 테스트 메소드 명 영어로 변경 후 displayName 사용
+
+---
 # 구현할 기능 목록 
 
 ## 입력
@@ -34,5 +47,3 @@
   - [x] 정수가 아닐 때
   - [x] null 값일 때
 - [x] 테스트 코드 작성
-
-# 1차 리뷰 후 개선 방향
