@@ -12,9 +12,14 @@ import racingcar.view.OutputView;
 
 public class RacingCarGameController {
 
-    InputView inputView = new InputView();
-    OutputView outputView = new OutputView();
-    List<Car> cars = new ArrayList<>();
+    private InputView inputView;
+    private OutputView outputView;
+    private List<Car> cars = new ArrayList<>();
+
+    public RacingCarGameController(InputView inputView, OutputView outputView) {
+        this.inputView = inputView;
+        this.outputView = outputView;
+    }
 
     public void start() {
         String inputCarNames = inputView.getCarNames();
