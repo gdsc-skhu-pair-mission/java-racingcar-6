@@ -18,7 +18,6 @@ public class Judgement {
     }
 
     private Judgement() {
-
     }
 
 }

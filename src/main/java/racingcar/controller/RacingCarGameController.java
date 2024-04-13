@@ -75,4 +75,5 @@ public class RacingCarGameController {
         }
         OutputView.printNewLine();
     }
+
 }
