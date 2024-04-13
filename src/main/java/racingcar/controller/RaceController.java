@@ -23,12 +23,12 @@ public class RaceController {
     }
 
     public void play() {
-        getCars();
+        addCarsFromInput();
         getAllRounds();
         judgeFinalWinner();
     }
 
-    private void getCars() {
+    private void addCarsFromInput() {
         List<String> names = Arrays.asList(inputView.inputRacingCarName());
         names.forEach(cars::addCar);
     }
