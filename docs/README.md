@@ -12,12 +12,28 @@
   > 불변 객체를 만드는 기본적인 아이디어: [Setter 구현X], [필드에 final 사용]
 
 - [x] Referee 클래스의 judgementWinnerCars() 메소드; 예외처리 선행 후 로직 진행으로 변경
-- [ ] enum 장점 알아보기
-- [ ] 유틸 클래스 알아보기(https://velog.io/@devrunner21/Static%EA%B3%BC-Utility-Class)
+- [x] enum 장점 알아보기
+  > 싱글톤을 만드는 가장 좋은 방법  
+  > 잘못된 값이 할당되는 것을 컴파일 시점에서 방지 -> 타입 안전성 보장  
+
+- [x] 유틸 클래스 알아보기(https://velog.io/@devrunner21/Static%EA%B3%BC-Utility-Class)
+  > [새롭게 알게 된 것]  
+  > static 변수는 static 영역에 저장되고 GC의 관리를 받지 않음  
+  > static 메서드 안에서는 static 필드만 사용 가능한 이유: 클래스 로딩 -> main() 메소드 실행 -> new 연산자로 해당 인스턴스 생성 -> 지역변수, 메소드 생성
+
 - [x] Validator 업무 과중 해결하기
 - [x] 의미 전달에 어려움이 있는 부분 상수화하기
-- [ ] 테스트 코드 명명규칙 알아보기(https://dzone.com/articles/7-popular-unit-test-naming)
-- [ ] 테스트 메소드 명 영어로 변경 후 displayName 사용
+- [x] 테스트 코드 명명규칙 알아보기(https://dzone.com/articles/7-popular-unit-test-naming)
+  > 1. MethodName_StateUnderTest_ExpectedBehavior(메서드명_테스트상태_기대행위)
+  > 2. MethodName_ExpectedBehavior_StateUnderTest(메서드명_기대행위_테스트상태)
+  > 3. test[Feature being tested](테스트[테스트중인 기능])(테스트할기능)
+  > 4. Feature to be tested(테스트할기능)
+  > 5. Should_ExpectedBehavior_When_StateUnderTest(Should_기대행위_when_테스트상태)
+  > 6. When_StateUnderTest_Expect_ExpectedBehavior(When_테스트상태_Expect_기대행위)
+  > 7. Given_Preconditions_When_StateUnderTest_Then_ExpectedBehavior(Given_사전조건_When_테스트상태_Then_예상동작)
+  > 저는 5번 규칙으로 테스트 메소드 이름을 작성했습니다.
+
+- [x] 테스트 메소드 명 영어로 변경 후 displayName 사용
 
 ---
 # 구현할 기능 목록 

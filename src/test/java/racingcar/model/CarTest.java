@@ -8,15 +8,17 @@ import static racingcar.util.ErrorMessage.INPUT_STRING_NOT_NULL;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.Application;
 import racingcar.util.validator.CarValidator;
 import racingcar.util.validator.InputValidator;
 
-public class CarTest extends NsTest {
+class CarTest extends NsTest {
 
     @Test
-    void 자동차_이름_5글자_이상일_때() {
+    @DisplayName("자동차 이름 5글자 이상일 때 예외 처리 테스트")
+    void should_ThrowException_When_IsCarNameOverRange() {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
             CarValidator.checkOverRange("자동차입니다");
         });
@@ -24,7 +26,8 @@ public class CarTest extends NsTest {
     }
 
     @Test
-    void 자동차_이름_공백일_때() {
+    @DisplayName("자동차 이름 공백일 때 예외 처리 테스트")
+    void should_ThrowException_When_IsCarNameEmptyAndBlank() {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
             CarValidator.checkSpace(" ");
         });
@@ -32,7 +35,8 @@ public class CarTest extends NsTest {
     }
 
     @Test
-    void 자동차_이름_null일_때() {
+    @DisplayName("자동차 이름 null일 때 예외 처리 테스트")
+    void should_ThrowException_When_IsCarNameNull() {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
             InputValidator.checkEmpty(null);
         });
@@ -40,7 +44,8 @@ public class CarTest extends NsTest {
     }
 
     @Test
-    void 자동차_이름_겹칠_때() {
+    @DisplayName("자동차 이름 겹칠 때 예외 처리 테스트")
+    void should_ThrowException_When_IsCarNameDuplicate() {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
             InputValidator.checkDuplicate("인호,인호");
         });
@@ -48,19 +53,21 @@ public class CarTest extends NsTest {
     }
 
     @Test
-    void 자동차_4_이상_값이면_1_전진() {
+    @DisplayName("moveCar() 메소드, 인자가 4이상일 경우 전진")
+    void should_Move_When_Factor4OrHigher() {
         // given
         Car car = new Car("test", 0);
 
         // when
-        car = car.moveCar(6);
+        car = car.moveCar(4);
 
         // then
         assertThat(car).extracting("movement").isEqualTo(1);
     }
 
     @Test
-    void 자동차_4_미만_값이면_멈춤() {
+    @DisplayName("moveCar() 메소드, 인자가 4미만일 경우 멈춤")
+    void should_Stop_When_FactorLessThan4() {
         // given
         Car car = new Car("test", 0);
 

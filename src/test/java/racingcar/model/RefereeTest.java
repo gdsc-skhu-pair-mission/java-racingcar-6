@@ -8,19 +8,21 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.Application;
 import racingcar.util.validator.InputValidator;
 
-public class RefereeTest extends NsTest {
+class RefereeTest extends NsTest {
     private final String roundNumber = "3";
     Referee referee = new Referee(roundNumber);
 
     @ParameterizedTest
     @ValueSource(strings = {"0", "-1", "1.1", "abc", ""})
-    void 라운드_횟수_범위에_맞지_않는_숫자_예외_처리(String input) {
+    @DisplayName("라운드 횟수가 범위에 맞지 않을 때 예외 처리 테스트")
+    void should_ThrowException_When_IsNotRoundNumberFitRange(String input) {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
             InputValidator.checkRoundNumber(input);
         });
@@ -28,7 +30,8 @@ public class RefereeTest extends NsTest {
     }
 
     @Test
-    void 라운드_횟수_NULL_예외_처리() {
+    @DisplayName("라운드 횟수 Null일 때 예외 처리 테스트")
+    void should_ThrowException_When_IsRoundNumberNull() {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
             InputValidator.checkEmpty(null);
         });
@@ -36,7 +39,8 @@ public class RefereeTest extends NsTest {
     }
 
     @Test
-    void 우승자_판단() {
+    @DisplayName("judgementWinnerCars() 메소드, 가장 위치가 큰 사람을 우승자로 판단")
+    void should_ReturnWinner_ForLargestPosition() {
         // given (주어진 값)
         List<Car> cars = new ArrayList<>();
         cars.add(new Car("소정", 0));
