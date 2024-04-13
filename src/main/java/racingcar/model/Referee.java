@@ -3,7 +3,7 @@ package racingcar.model;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.util.Parser;
-import racingcar.util.Validator;
+import racingcar.util.validator.InputValidator;
 
 public class Referee {
     private final String roundNumber;
@@ -11,8 +11,8 @@ public class Referee {
     private final int MIN_REQUIRED_CAR_NUMBER = 2;
 
     public Referee(String roundNumber) {
-        Validator.checkEmpty(roundNumber);
-        Validator.checkRoundNumber(roundNumber);
+        InputValidator.checkEmpty(roundNumber);
+        InputValidator.checkRoundNumber(roundNumber);
 
         this.roundNumber = roundNumber;
     }

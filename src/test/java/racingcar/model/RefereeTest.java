@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.Application;
-import racingcar.util.Validator;
+import racingcar.util.validator.InputValidator;
 
 public class RefereeTest extends NsTest {
     private final String roundNumber = "3";
@@ -22,7 +22,7 @@ public class RefereeTest extends NsTest {
     @ValueSource(strings = {"0", "-1", "1.1", "abc", ""})
     void 라운드_횟수_범위에_맞지_않는_숫자_예외_처리(String input) {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
-            Validator.checkRoundNumber(input);
+            InputValidator.checkRoundNumber(input);
         });
         Assertions.assertEquals(INPUT_WRONG_ROUND_NUMBER.message, exception.getMessage());
     }
@@ -30,7 +30,7 @@ public class RefereeTest extends NsTest {
     @Test
     void 라운드_횟수_NULL_예외_처리() {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
-            Validator.checkEmpty(null);
+            InputValidator.checkEmpty(null);
         });
         Assertions.assertEquals(INPUT_STRING_NOT_NULL.message, exception.getMessage());
     }

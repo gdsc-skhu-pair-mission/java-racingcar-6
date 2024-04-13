@@ -10,14 +10,15 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import racingcar.Application;
-import racingcar.util.Validator;
+import racingcar.util.validator.CarValidator;
+import racingcar.util.validator.InputValidator;
 
 public class CarTest extends NsTest {
 
     @Test
     void 자동차_이름_5글자_이상일_때() {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
-            Validator.checkOverRange("자동차입니다");
+            CarValidator.checkOverRange("자동차입니다");
         });
         Assertions.assertEquals(INPUT_CAR_NAME_IS_INCORRECT.message, exception.getMessage());
     }
@@ -25,7 +26,7 @@ public class CarTest extends NsTest {
     @Test
     void 자동차_이름_공백일_때() {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
-            Validator.checkSpace(" ");
+            CarValidator.checkSpace(" ");
         });
         Assertions.assertEquals(INPUT_CAR_NAME_BLANK.message, exception.getMessage());
     }
@@ -33,7 +34,7 @@ public class CarTest extends NsTest {
     @Test
     void 자동차_이름_null일_때() {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
-            Validator.checkEmpty(null);
+            InputValidator.checkEmpty(null);
         });
         Assertions.assertEquals(INPUT_STRING_NOT_NULL.message, exception.getMessage());
     }
@@ -41,7 +42,7 @@ public class CarTest extends NsTest {
     @Test
     void 자동차_이름_겹칠_때() {
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> {
-            Validator.checkDuplicate("인호,인호");
+            InputValidator.checkDuplicate("인호,인호");
         });
         Assertions.assertEquals(INPUT_STRING_DUPLICATE.message, exception.getMessage());
     }

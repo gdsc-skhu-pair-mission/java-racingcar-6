@@ -6,7 +6,7 @@ import racingcar.model.Car;
 import racingcar.model.Referee;
 import racingcar.util.Parser;
 import racingcar.util.Random;
-import racingcar.util.Validator;
+import racingcar.util.validator.InputValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -43,8 +43,8 @@ public class RacingCarGameController {
     }
 
     private void checkInputCarNames(String inputCarNames) {
-        Validator.checkEmpty(inputCarNames);
-        Validator.checkDuplicate(inputCarNames);
+        InputValidator.checkEmpty(inputCarNames);
+        InputValidator.checkDuplicate(inputCarNames);
     }
 
     private void carsMovementProgress(Referee referee) {
