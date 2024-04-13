@@ -1,15 +1,13 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
-import racingcar.model.RandomNumber;
-import racingcar.model.Winner;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.List;
 
 public class RaceGameController {
-
+    public static final int MOVE_STANDARD = 4;
     private final InputView inputView;
     private final OutputView outputView;
     private final Winner winner;
@@ -25,7 +23,7 @@ public class RaceGameController {
         int tryCount = inputView.getTryCount();
 
         outputView.resultMessage();
-        while (tryCount -- > 0) {
+        for(int i = 0; i < tryCount; i++) {
             carList.forEach(this::playMoveCar);
             outputView.roundResult(carList);
         }
@@ -34,9 +32,9 @@ public class RaceGameController {
         outputView.finalWinner(winnerList);
     }
 
-    private void playMoveCar(Car car) {
+    public void playMoveCar(Car car) {
         int randomNumber = RandomNumber.generateRandomNumber();
-        if (randomNumber >= Car.MOVE_STANDARD) {
+        if (randomNumber >= MOVE_STANDARD) {
             car.move();
         }
     }

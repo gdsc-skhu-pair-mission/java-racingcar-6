@@ -1,5 +1,6 @@
 package racingcar;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.view.InputView;
@@ -12,10 +13,10 @@ import java.util.List;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class ViewTest {
-    private InputView inputView;
+    private static InputView inputView;
 
-    @BeforeEach
-    void 변수_초기화() {
+    @BeforeAll
+    static void 변수_초기화() {
         inputView = new InputView();
     }
 

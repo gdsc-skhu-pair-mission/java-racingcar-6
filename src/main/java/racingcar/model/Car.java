@@ -1,7 +1,6 @@
 package racingcar.model;
 
 public class Car {
-    public static final int MOVE_STANDARD = 4;
     private String name;
     private int position;
 

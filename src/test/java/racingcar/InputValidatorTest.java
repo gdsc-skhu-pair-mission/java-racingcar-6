@@ -1,7 +1,7 @@
 package racingcar;
 
 import org.junit.jupiter.api.Test;
-import racingcar.controller.InputValidator;
+import racingcar.util.InputValidator;
 
 import java.util.Arrays;
 
