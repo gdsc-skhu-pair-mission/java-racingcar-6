@@ -2,6 +2,8 @@ package racingcar.model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.model.strategy.AlwaysMoveStrategy;
+import racingcar.model.strategy.MoveStrategy;
 
 import java.util.List;
 
@@ -35,9 +37,10 @@ class CarsTest {
         // given
         List<Car> testCars = List.of(testCar1, testCar2);
         Cars cars = new Cars(testCars);
+        MoveStrategy moveStrategy = new AlwaysMoveStrategy();
 
         // when
-        cars.moveEligibleCars(MoveStrategy.ALWAYS_MOVE);
+        cars.moveEligibleCars(moveStrategy);
 
         // then
         for (int position : cars.getPositions()) {

@@ -5,8 +5,9 @@ import java.util.stream.Collectors;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.Judgement;
-import racingcar.model.MoveStrategy;
+import racingcar.model.strategy.MoveStrategy;
 import racingcar.model.Racing;
+import racingcar.model.strategy.RandomMoveStrategy;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -15,10 +16,11 @@ public class RacingCarGameController {
     public void startGame() {
         List<String> carNames = getCarNames();
         Cars cars = generateCars(carNames);
+        MoveStrategy moveStrategy = new RandomMoveStrategy();
 
         int tryCount = getTryCount();
 
-        Racing racing = new Racing(cars, MoveStrategy.RANDOM_4_OR_ABOVE);
+        Racing racing = new Racing(cars, moveStrategy);
 
         OutputView.printResultHeader();
         for (int i = 0; i < tryCount; i++) {

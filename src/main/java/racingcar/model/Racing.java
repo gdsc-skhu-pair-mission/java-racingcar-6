@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import racingcar.model.strategy.MoveStrategy;
+
 public class Racing {
 
     private final Cars cars;
