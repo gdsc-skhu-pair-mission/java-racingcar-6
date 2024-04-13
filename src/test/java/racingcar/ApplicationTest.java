@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -13,29 +14,32 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 전진_정지() {
+    @DisplayName("정상적으로 전진과 정지를 합니다.")
+    void carMoveOrStop() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP
         );
     }
 
     @Test
-    void 공동_우승() {
+    @DisplayName("공동 우승자를 출력합니다.")
+    void printJointWinner() {
         assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
-            },
-            MOVING_FORWARD, MOVING_FORWARD
+                () -> {
+                    run("pobi,woni", "1");
+                    assertThat(output()).contains("pobi : -", "woni : -", "최종 우승자 : pobi, woni");
+                },
+                MOVING_FORWARD, MOVING_FORWARD
         );
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
+    @DisplayName("자동차 이름이 5자를 초과하면 예외가 발생합니다.")
+    void throwExceptionForNameLengthOverFive() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -43,7 +47,8 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 시도_회수_대한_예외_처리() {
+    @DisplayName("시도 횟수 입력이 올바르지 않으면 예외가 발생합니다.")
+    void throwExceptionForInputTryCountInput() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni", "01"))
                         .isInstanceOf(IllegalArgumentException.class)

@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -19,22 +20,24 @@ class RacingTest {
     }
 
     @Test
-    void 정상적으로_레이싱_객체_생성() {
+    @DisplayName("정상적으로 레이싱 객체를 생성합니다.")
+    void createRacingObject() {
         // given
         Cars cars = new Cars(List.of(testCar1, testCar2));
 
         // when
-        Racing racing = new Racing(cars, MoveStrategy.ALWAYS_MOVE);
+        Racing racing = new Racing(cars, new AlwaysMoveStrategy());
 
         // then
         assertThat(racing).isNotNull();
     }
 
     @Test
-    void 라운드_진행() {
+    @DisplayName("레이싱을 진행합니다.")
+    void startRacing() {
         // given
         Cars cars = new Cars(List.of(testCar1, testCar2));
-        Racing racing = new Racing(cars, MoveStrategy.ALWAYS_MOVE);
+        Racing racing = new Racing(cars, new AlwaysMoveStrategy());
 
         // when
         racing.start();

@@ -8,13 +8,20 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
-        validateName(name);
+        validateNameLength(name);
+        validateNameBlank(name);
         this.name = name;
     }
 
-    private void validateName(String name) {
+    private void validateNameLength(String name) {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 5자를 초과할 수 없습니다.");
+        }
+    }
+
+    private void validateNameBlank(String name) {
+        if (name.isBlank()) {
+            throw new IllegalArgumentException("자동차 이름은 공백일 수 없습니다.");
         }
     }
 

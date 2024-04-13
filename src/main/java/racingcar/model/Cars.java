@@ -1,13 +1,16 @@
 package racingcar.model;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class Cars {
+public record Cars(List<Car> cars) {
 
-    private final List<Car> cars;
-
-    public Cars(List<Car> cars) {
-        this.cars = cars;
+    public static Cars generateCars(List<String> carNames) {
+        List<Car> generatedCars = carNames
+                .stream()
+                .map(Car::new)
+                .collect(Collectors.toList());
+        return new Cars(generatedCars);
     }
 
     public void moveEligibleCars(MoveStrategy moveStrategy) {

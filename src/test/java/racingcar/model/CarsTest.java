@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -19,7 +20,8 @@ class CarsTest {
     }
 
     @Test
-    void 정상적으로_자동차들_객체_생성() {
+    @DisplayName("Cars 객체를 생성합니다.")
+    void crateCarsObject() {
         // given
         List<Car> testCars = List.of(testCar1, testCar2);
 
@@ -31,13 +33,14 @@ class CarsTest {
     }
 
     @Test
-    void 자동차들이_규칙에_따라_전진() {
+    @DisplayName("규칙에 따라 자동차들을 이동시킵니다.")
+    void moveCarsAccordingToRule() {
         // given
         List<Car> testCars = List.of(testCar1, testCar2);
         Cars cars = new Cars(testCars);
 
         // when
-        cars.moveEligibleCars(MoveStrategy.ALWAYS_MOVE);
+        cars.moveEligibleCars(new AlwaysMoveStrategy());
 
         // then
         for (int position : cars.getPositions()) {
