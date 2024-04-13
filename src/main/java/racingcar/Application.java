@@ -14,9 +14,9 @@ public class Application {
         RacingGame racingGame = new RacingGame(inputview, outputview);
 
         // 게임 시작
-        racingGame.StartGame();
+        racingGame.startGame();
         // 게임 진행
-        racingGame.GameProcess();
+        racingGame.gameProcess();
         // 우승자 판별
         racingGame.winner();
 

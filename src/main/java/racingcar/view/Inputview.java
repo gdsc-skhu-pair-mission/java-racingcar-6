@@ -23,7 +23,7 @@ public class Inputview {
             cars.add(car);
         }
         // 자동차 이름 중복 검사
-        ValidateCarName(carNames);
+        validateCarName(carNames);
         // 자동차 객체 리스트 반환
         return cars;
     }
@@ -34,12 +34,12 @@ public class Inputview {
         // Int로 시도할 횟수 입력 받기
         int count = Integer.parseInt(stringCount);
         // 시도할 횟수 예외 검사
-        ValidateCount(count, stringCount);
+        validateCount(count, stringCount);
         return count;
     }
 
     // 시도할 횟수를 입력 받을 때 예외처리
-    private void ValidateCount(int count, String stringCount) {
+    private void validateCount(int count, String stringCount) {
         if (count < 1) {
             throw new IllegalArgumentException("시도할 횟수는 1이상이여야 합니다.");
         }
@@ -50,7 +50,7 @@ public class Inputview {
     }
 
     // 자동차 이름을 입력 받을 때 예외처리
-    private void ValidateCarName(List<String> carNames) {
+    private void validateCarName(List<String> carNames) {
         for (String correctCarName : carNames) {
             if (correctCarName.length() > 5) {
                 throw new IllegalArgumentException("자동차 이름은 5자 이하만 가능합니다.");
