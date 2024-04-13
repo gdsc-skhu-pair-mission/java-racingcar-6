@@ -25,8 +25,8 @@ public class Cars {
         this.winners = new ArrayList<>();
     }
 
-    public void addCar(String name) {
-        this.cars.add(new Car(name));
+    public void addCar(Car car) {
+        this.cars.add(car);
     }
 
     public List<Car> getCars() {

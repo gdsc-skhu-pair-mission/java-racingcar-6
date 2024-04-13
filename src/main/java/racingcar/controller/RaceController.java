@@ -29,8 +29,10 @@ public class RaceController {
     }
 
     private void addCarsFromInput() {
-        List<String> names = Arrays.asList(inputView.inputRacingCarName());
-        names.forEach(cars::addCar);
+        String[] names = inputView.inputRacingCarName();
+        for (String name : names) {
+            cars.addCar(new Car(name));
+        }
     }
 
     private void getAllRounds() {

@@ -12,9 +12,9 @@ class CarsTest {
     @BeforeEach
     void setUp() {
         cars = new Cars();
-        cars.addCar("testCar1");
-        cars.addCar("testCar2");
-        cars.addCar("testCar3");
+        cars.addCar(new Car("testCar1"));
+        cars.addCar(new Car("testCar2"));
+        cars.addCar(new Car("testCar3"));
     }
 
     @Test
