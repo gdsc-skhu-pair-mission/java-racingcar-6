@@ -1,6 +1,8 @@
 package racingcar.controller;
 
 import java.util.List;
+
+import racingcar.dto.CarPositionCapture;
 import racingcar.model.Cars;
 import racingcar.model.Judgement;
 import racingcar.model.strategy.MoveStrategy;
@@ -17,14 +19,8 @@ public class RacingCarGameController {
         MoveStrategy moveStrategy = new RandomMoveStrategy();
 
         int tryCount = getTryCount();
-
         Racing racing = new Racing(cars, moveStrategy);
-
-        OutputView.printResultHeader();
-        for (int i = 0; i < tryCount; i++) {
-            racing.start();
-            printProcess(cars.getNames(), cars.getPositions());
-        }
+        racingStart(racing, tryCount);
 
         OutputView.printWinners(Judgement.getWinners(cars));
     }
@@ -49,20 +45,37 @@ public class RacingCarGameController {
     }
 
     private boolean isNotNaturalNumberWithZero(String input) {
-        if (input.isEmpty() || input.charAt(0) == '0') {
+        if (input.isEmpty()) {
             return true;
         }
 
-        return input.chars()
+        if (input.charAt(0) == '0' && input.length() > 1) {
+            return true;
+        }
+
+        return !input.chars()
                 .allMatch(Character::isDigit);
     }
 
-    private void printProcess(List<String> carNames, List<Integer> positions) {
-        for (String carName : carNames) {
-            int position = positions.get(carNames.indexOf(carName));
-            OutputView.printCarPosition(carName, position);
+
+    private void racingStart(Racing racing, int tryCount) {
+        OutputView.printResultHeader();
+        racing.start(tryCount);
+        printProcess(racing.getRoundHistories());
+    }
+
+    private void printProcess(List<CarPositionCapture> roundHistories) {
+        for (CarPositionCapture round : roundHistories) {
+            List<String> carNames = round.carNames();
+            List<Integer> positions = round.positions();
+
+            for (int i = 0; i < carNames.size(); i++) {
+                String carName = carNames.get(i);
+                int position = positions.get(i);
+                OutputView.printCarPosition(carName, position);
+            }
+            OutputView.printNewLine();
         }
-        OutputView.printNewLine();
     }
 
 }

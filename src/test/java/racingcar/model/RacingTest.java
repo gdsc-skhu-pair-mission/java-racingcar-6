@@ -41,7 +41,7 @@ class RacingTest {
         Racing racing = new Racing(cars, moveStrategy);
 
         // when
-        racing.start();
+        racing.start(1);
 
         // then
         for (int position : racing.getCars().getPositions()) {
