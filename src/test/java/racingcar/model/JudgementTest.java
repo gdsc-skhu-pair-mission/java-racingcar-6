@@ -4,42 +4,46 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.model.strategy.AlwaysMoveStrategy;
+import racingcar.model.strategy.MoveStrategy;
 
 class JudgementTest {
-
-    private Car testCar1;
-    private Car testCar2;
+    private final String testCarName1 = "pobi";
+    private final String testCarName2 = "woni";
+    private MoveStrategy moveStrategy;
 
     @BeforeEach
     void setUp() {
-        testCar1 = new Car("pobi");
-        testCar2 = new Car("woni");
+        moveStrategy = new AlwaysMoveStrategy();
     }
 
     @Test
-    void 단일_우승자() {
+    @DisplayName("단일 우승자")
+    void getWinners_Returns_Single_Winner() {
         // given
-        testCar1.moveForward();
-        Cars cars = new Cars(List.of(testCar1, testCar2));
+        Cars cars = Cars.generateCars(List.of(testCarName1));
+        cars.moveEligibleCars(moveStrategy);
 
         // when
         Judgement.getWinners(cars);
 
         // then
-        assertThat(Judgement.getWinners(cars)).isEqualTo(List.of("pobi"));
+        assertThat(Judgement.getWinners(cars)).isEqualTo(List.of(testCarName1));
     }
 
     @Test
-    void 공동_우승자() {
+    @DisplayName("공동 우승자")
+    void getWinners_Returns_Multiple_Winners() {
         // given
-        Cars cars = new Cars(List.of(testCar1, testCar2));
+        Cars cars = Cars.generateCars(List.of(testCarName1, testCarName2));
+        cars.moveEligibleCars(moveStrategy);
 
         // when
         Judgement.getWinners(cars);
 
         // then
-        assertThat(Judgement.getWinners(cars)).isEqualTo(List.of("pobi", "woni"));
+        assertThat(Judgement.getWinners(cars)).isEqualTo(List.of(testCarName1, testCarName2));
     }
-
 }

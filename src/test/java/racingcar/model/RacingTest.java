@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.model.strategy.AlwaysMoveStrategy;
 import racingcar.model.strategy.MoveStrategy;
@@ -10,22 +11,20 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingTest {
-
-    private Car testCar1;
-    private Car testCar2;
+    private final String testCarName1 = "pobi";
+    private final String testCarName2 = "woni";
     private MoveStrategy moveStrategy;
 
     @BeforeEach
     void setUp() {
-        testCar1 = new Car("pobi");
-        testCar2 = new Car("woni");
         moveStrategy = new AlwaysMoveStrategy();
     }
 
     @Test
-    void 정상적으로_레이싱_객체_생성() {
+    @DisplayName("정상적으로 레이싱 객체 생성")
+    void createRacing_Creates_Racing_Object_Correctly() {
         // given
-        Cars cars = new Cars(List.of(testCar1, testCar2));
+        Cars cars = Cars.generateCars(List.of(testCarName1, testCarName2));
 
         // when
         Racing racing = new Racing(cars, moveStrategy);
@@ -35,9 +34,10 @@ class RacingTest {
     }
 
     @Test
-    void 라운드_진행() {
+    @DisplayName("라운드 진행")
+    void start_Racing_Rounds_Progress() {
         // given
-        Cars cars = new Cars(List.of(testCar1, testCar2));
+        Cars cars = Cars.generateCars(List.of(testCarName1, testCarName2));
         Racing racing = new Racing(cars, moveStrategy);
 
         // when
@@ -48,5 +48,4 @@ class RacingTest {
             assertThat(position).isEqualTo(1);
         }
     }
-
 }

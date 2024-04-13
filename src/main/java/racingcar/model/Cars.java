@@ -8,8 +8,14 @@ public class Cars {
 
     private final List<Car> cars;
 
-    public Cars(List<Car> cars) {
+    private Cars(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public static Cars generateCars(List<String> carNames) {
+        return new Cars(carNames.stream()
+                .map(Car::new)
+                .toList());
     }
 
     public void moveEligibleCars(MoveStrategy moveStrategy) {

@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -13,7 +14,8 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 전진_정지() {
+    @DisplayName("전진 정지")
+    void testForward_Stop() {
         assertRandomNumberInRangeTest(
             () -> {
                 run("pobi,woni", "1");
@@ -24,7 +26,8 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 공동_우승() {
+    @DisplayName("공동 우승")
+    void testShared_Winners() {
         assertRandomNumberInRangeTest(
             () -> {
                 run("pobi,woni", "1");
@@ -35,7 +38,8 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 이름에_대한_예외_처리() {
+    @DisplayName("이름에 대한 예외 처리")
+    void test_Exception_For_Invalid_Name() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                         .isInstanceOf(IllegalArgumentException.class)
@@ -43,7 +47,8 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 시도_회수_대한_예외_처리() {
+    @DisplayName("시도 회수에 대한 예외 처리")
+    void test_Exception_For_Invalid_TryCount() {
         assertSimpleTest(() ->
                 assertThatThrownBy(() -> runException("pobi,woni", "01"))
                         .isInstanceOf(IllegalArgumentException.class)

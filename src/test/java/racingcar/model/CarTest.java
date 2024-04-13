@@ -3,12 +3,13 @@ package racingcar.model;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CarTest {
-
     @Test
-    void 정상적으로_자동차_객체_생성() {
+    @DisplayName("정상적으로 자동차 객체 생성")
+    void createCar_Creates_Car_Object_Correctly() {
         // given
         String name = "pobi";
 
@@ -20,7 +21,8 @@ class CarTest {
     }
 
     @Test
-    void 자동차_이름이_5자를_초과하면_예외_발생() {
+    @DisplayName("자동차 이름이 5자를 초과하면 예외 발생")
+    void createCar_Throws_Exception_If_Car_Name_Exceeds_5_Characters() {
         // given
         String name = "spiderman";
 
@@ -30,7 +32,8 @@ class CarTest {
     }
 
     @Test
-    void 자동차_전진() {
+    @DisplayName("자동차 한 칸 전진")
+    void moveForward_Increases_Car_Position_By_One() {
         // given
         Car car = new Car("pobi");
 
@@ -40,5 +43,4 @@ class CarTest {
         // then
         assertThat(car.getPosition()).isEqualTo(1);
     }
-
 }
