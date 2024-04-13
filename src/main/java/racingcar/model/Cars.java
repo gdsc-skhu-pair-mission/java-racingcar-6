@@ -36,7 +36,6 @@ public class Cars {
     public void findWinners() {
         sortCarsByDistance();
         int maxDistance = cars.get(0).getDistance();
-
         int i = 0;
         while (i < cars.size() && maxDistance == cars.get(i).getDistance()) {
             winners.add(cars.get(i).getName());

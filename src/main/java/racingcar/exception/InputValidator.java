@@ -3,22 +3,15 @@ package racingcar.exception;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ValidateInputData {
+public class InputValidator {
 
-    public static void validateCarNameIsCorrect(String[] carNames) {
+    public static void validateCarName(String carNames) {
         validateCarNameEmpty(carNames);
         validateCarNameHasBlank(carNames);
         validateCarNameLength(carNames);
-        validateCarNameDuplicated(carNames);
     }
 
-    public static void validateTryNumberIsCorrect(String tryNumber) {
-        validateTryNumberIsNotInt(tryNumber);
-        validateTryNumberIsNaturalNumber(tryNumber);
-        validateTryNumberIsEmpty(tryNumber);
-    }
-
-    private static void validateCarNameDuplicated(String[] carNames) {
+    public static void validateCarNameDuplicated(String[] carNames) {
         Set<String> carNameSet = new HashSet<>();
         for (String name : carNames) {
             if (!carNameSet.add(name)) {
@@ -27,30 +20,31 @@ public class ValidateInputData {
         }
     }
 
-    private static void validateCarNameHasBlank(String[] carNames) {
-        for (String name : carNames) {
-            if (name.isEmpty()) {
-                throw new IllegalArgumentException(ErrorMessage.NOT_ALLOW_BLANK.getMessage());
-            }
+    private static void validateCarNameEmpty(String carName) {
+        if (carName.contains(" ")) {
+            throw new IllegalArgumentException(ErrorMessage.NOT_ALLOW_EMPTY.getMessage());
         }
     }
 
-    private static void validateCarNameEmpty(String[] carNames) {
-        for (String name : carNames) {
-            if (name.contains(" ")) {
-                throw new IllegalArgumentException(ErrorMessage.NOT_ALLOW_EMPTY.getMessage());
-            }
+    private static void validateCarNameHasBlank(String carName) {
+        if (carName.isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.NOT_ALLOW_BLANK.getMessage());
         }
     }
 
-    private static void validateCarNameLength(String[] carNames) {
+    private static void validateCarNameLength(String carName) {
         final int LENGTH_LIMIT_NUMBER = 5;
 
-        for (String name : carNames) {
-            if (name.length() > LENGTH_LIMIT_NUMBER) {
-                throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_LENGTH.getMessage());
-            }
+        if (carName.length() > LENGTH_LIMIT_NUMBER) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_LENGTH.getMessage());
         }
+    }
+
+
+    public static void validateTryNumber(String tryNumber) {
+        validateTryNumberIsNotInt(tryNumber);
+        validateTryNumberIsNaturalNumber(tryNumber);
+        validateTryNumberIsEmpty(tryNumber);
     }
 
     private static void validateTryNumberIsNotInt(String tryNumber) {

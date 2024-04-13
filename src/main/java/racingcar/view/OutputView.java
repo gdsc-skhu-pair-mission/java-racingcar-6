@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class OutputView {
     private static OutputView instance;
@@ -19,7 +18,7 @@ public class OutputView {
         System.out.println(RUN_RESULT_MESSAGE);
     }
 
-    public void printMoveDistance(String carName, StringBuilder distance) {
+    public void printMoveDistance(String carName, String distance) {
         System.out.println(carName + " : " + distance);
     }
 

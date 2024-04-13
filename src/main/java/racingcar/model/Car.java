@@ -1,11 +1,14 @@
 package racingcar.model;
 
+import racingcar.exception.InputValidator;
+
 public class Car {
     private String name;
     private int distance;
     private StringBuilder moveAmount;
 
     public Car(String name) {
+        InputValidator.validateCarName(name);
         this.name = name;
         this.distance = 0;
         moveAmount = new StringBuilder();
@@ -26,7 +29,7 @@ public class Car {
         return distance;
     }
 
-    public StringBuilder getMoveAmount() {
-        return moveAmount;
+    public String getMoveAmount() {
+        return moveAmount.toString();
     }
 }

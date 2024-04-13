@@ -1,6 +1,5 @@
 package racingcar.controller;
 
-
 import java.util.Arrays;
 import java.util.List;
 import racingcar.model.Car;
@@ -23,10 +22,10 @@ public class RaceController {
         this.cars = Cars.getInstance();
     }
 
-    public void start() {
+    public void play() {
         getCars();
         getAllRounds();
-        getFinalWinner();
+        judgeFinalWinner();
     }
 
     private void getCars() {
@@ -51,7 +50,7 @@ public class RaceController {
         }
     }
 
-    private void getFinalWinner() {
+    private void judgeFinalWinner() {
         cars.findWinners();
         outputView.printFinalWinner(cars.getWinners());
     }
