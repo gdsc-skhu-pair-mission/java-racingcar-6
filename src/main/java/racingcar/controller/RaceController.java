@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import java.util.Arrays;
-import java.util.List;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.MoveDecider;
