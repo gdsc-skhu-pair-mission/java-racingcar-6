@@ -49,10 +49,10 @@ public class CarTest extends NsTest {
     @Test
     void 자동차_4_이상_값이면_1_전진() {
         // given
-        Car car = new Car("test");
+        Car car = new Car("test", 0);
 
         // when
-        car.setMovement(6);
+        car = car.moveCar(6);
 
         // then
         assertThat(car).extracting("movement").isEqualTo(1);
@@ -61,10 +61,10 @@ public class CarTest extends NsTest {
     @Test
     void 자동차_4_미만_값이면_멈춤() {
         // given
-        Car car = new Car("test");
+        Car car = new Car("test", 0);
 
         // when
-        car.setMovement(3);
+        car.moveCar(3);
 
         // then
         assertThat(car).extracting("movement").isEqualTo(0);

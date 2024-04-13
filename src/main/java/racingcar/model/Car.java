@@ -4,14 +4,16 @@ import racingcar.util.Validator;
 
 public class Car {
     private final int MIN_FORWARD_REQUIREMENT = 4;
+    private final int MOVEMENT_DISTANCE = 1;
     private final String NAME;
-    private int movement = 0;
+    private final int POSITION;
 
-    public Car(String name) {
+    public Car(final String name, final int movement) {
         Validator.checkOverRange(name);
         Validator.checkSpace(name);
 
         this.NAME = name;
+        this.POSITION = movement;
     }
 
     public String getName() {
@@ -19,13 +21,14 @@ public class Car {
     }
 
     public int getMovement() {
-        return movement;
+        return POSITION;
     }
 
-    public void setMovement(int number) {
+    public Car moveCar(int number) {
         if (number >= MIN_FORWARD_REQUIREMENT) {
-            movement++;
+            return new Car(this.NAME, this.POSITION + MOVEMENT_DISTANCE);
         }
+        return this;
     }
 
 }

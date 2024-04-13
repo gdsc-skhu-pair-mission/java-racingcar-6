@@ -29,7 +29,7 @@ public class RacingCarGameController {
         List<String> carNames= Parser.parseStringToList(inputCarNames);
 
         for (String carName : carNames) {
-            cars.add(new Car(carName));
+            cars.add(new Car(carName, 0));
         }
 
         Referee referee = new Referee(inputView.getNumberOfRound());
@@ -57,8 +57,7 @@ public class RacingCarGameController {
 
     private void carsMovement(List<Car> cars) {
         for (Car car : cars) {
-            car.setMovement(Random.createRandomNumber());
+            cars.set(cars.indexOf(car), car.moveCar(Random.createRandomNumber()));
         }
     }
-
 }
