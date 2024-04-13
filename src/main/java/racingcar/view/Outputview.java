@@ -13,9 +13,7 @@ public class Outputview {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public void resultMessage(){
-        System.out.println("실행 결과");
-    }
+    public void resultMessage(){ System.out.println("실행 결과");}
 
     public String moveForward(){
         return "-";
@@ -28,6 +26,5 @@ public class Outputview {
                 .map(car -> car.getName())
                 .collect(Collectors.joining(", "));
         System.out.println("최종 우승자 : " + stringWinners );
-
     }
 }

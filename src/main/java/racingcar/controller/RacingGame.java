@@ -23,7 +23,7 @@ public class RacingGame {
     // 게임 시작 메소드
     public void startGame() {
         outputview.startMessage(); //  게임 시작 안내문 출력
-        cars = inputview.CarNameInput(); // 자동차 이름 입력받기
+        cars = inputview.carNameInput(); // 자동차 이름 입력받기
     }
 
     // 랜덤숫자 생성 메소드
@@ -45,7 +45,7 @@ public class RacingGame {
                     car.carMove();
                 }
                 // 자동차 이동한 거리 출력
-                System.out.printf("%s : %s\n", car.getName(), outputview.moveForward().repeat(car.getDistance()));
+                System.out.println(String.format("%s : %s", car.getName(), outputview.moveForward().repeat(car.getDistance())));
             }
             // 게임 횟수 구분하기 위해 개행 추가
             System.out.println("");
@@ -69,7 +69,6 @@ public class RacingGame {
     public List<Car> selectWinner() {
 
         List<Car> winners = new ArrayList<>();
-
         for (Car car : cars) {
             if (car.getDistance() == maxDistance()) {
                 winners.add(car);
