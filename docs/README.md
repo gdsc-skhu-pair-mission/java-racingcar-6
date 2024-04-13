@@ -11,7 +11,7 @@
   > 즉, 재할당은 가능하지만, 한번 할당하면 내부 데이터를 변경할 수 없는 객체(ex. String; 값 변경 X, 새로운 객체 생성 후 참조)  
   > 불변 객체를 만드는 기본적인 아이디어: [Setter 구현X], [필드에 final 사용]
 
-- [ ] Referee 클래스의 judgementWinnerCars() 메소드; 예외처리 선행 후 로직 진행으로 변경
+- [x] Referee 클래스의 judgementWinnerCars() 메소드; 예외처리 선행 후 로직 진행으로 변경
 - [ ] enum 장점 알아보기
 - [ ] 유틸 클래스 알아보기(https://velog.io/@devrunner21/Static%EA%B3%BC-Utility-Class)
 - [ ] Validator 업무 과중 해결하기
