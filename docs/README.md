@@ -14,8 +14,8 @@
 - [x] Referee 클래스의 judgementWinnerCars() 메소드; 예외처리 선행 후 로직 진행으로 변경
 - [ ] enum 장점 알아보기
 - [ ] 유틸 클래스 알아보기(https://velog.io/@devrunner21/Static%EA%B3%BC-Utility-Class)
-- [ ] Validator 업무 과중 해결하기
-- [ ] 의미 전달에 어려움이 있는 부분 상수화하기
+- [x] Validator 업무 과중 해결하기
+- [x] 의미 전달에 어려움이 있는 부분 상수화하기
 - [ ] 테스트 코드 명명규칙 알아보기(https://dzone.com/articles/7-popular-unit-test-naming)
 - [ ] 테스트 메소드 명 영어로 변경 후 displayName 사용
 

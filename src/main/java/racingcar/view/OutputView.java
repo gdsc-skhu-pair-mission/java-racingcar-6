@@ -6,6 +6,7 @@ import racingcar.model.Car;
 public class OutputView {
 
     private static final int SOLO_WINNER = 1;
+    private static final int LAST_COMMA_AND_SPACE = 2;
 
     public void printResultMessage() {
         System.out.println("실행 결과");
@@ -33,7 +34,7 @@ public class OutputView {
             nameOfWinnerCars.append(car.getName()).append(", ");
         }
 
-        nameOfWinnerCars.deleteCharAt(nameOfWinnerCars.length() - 2);
+        nameOfWinnerCars.deleteCharAt(nameOfWinnerCars.length() - LAST_COMMA_AND_SPACE);
         System.out.println("최종 우승자 : " + nameOfWinnerCars);
     }
 
