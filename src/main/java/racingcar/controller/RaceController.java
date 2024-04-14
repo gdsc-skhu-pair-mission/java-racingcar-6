@@ -27,12 +27,12 @@ public class RaceController {
     public void start() {
         getCars();
         getAllRounds();
-        getFinalWinner();
+        findWinner();
     }
 
     private void getCars() {
         List<String> names = Arrays.asList(inputView.inputRacingCarName());
-        names.forEach(cars::addCar);
+        cars.addAllCar(names);
     }
 
     private void getAllRounds() {
@@ -45,14 +45,15 @@ public class RaceController {
     }
 
     private void playRound() {
-        for (int i = 0; i < cars.getCars().size(); i++) {
-            Car car = cars.getCars().get(i);
-            car.move(moveDecider.decideMove());
-            outputView.printMoveDistance(car.getName(), car.getMoveAmount());
+        for (Car car : cars.getCars()) {
+            if (moveDecider.decideMove()) {
+                car.move();
+            }
+            outputView.printMoveDistance(car);
         }
     }
 
-    private void getFinalWinner() {
+    private void findWinner() {
         cars.findWinners();
         outputView.printFinalWinner(cars.getWinners());
     }

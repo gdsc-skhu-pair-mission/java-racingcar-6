@@ -1,7 +1,8 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.exception.ValidateInputData;
+import racingcar.util.validator.CarNameValidator;
+import racingcar.util.validator.TryNumberValidator;
 
 public class InputView {
 
@@ -19,7 +20,7 @@ public class InputView {
     public String[] inputRacingCarName() {
         System.out.println(CAR_NAME_INPUT_PROMPT_MESSAGE);
         String[] carNames = Console.readLine().split(",");
-        ValidateInputData.validateCarNameIsCorrect(carNames);
+        CarNameValidator.validateCarNameIsCorrect(carNames);
 
         return carNames;
     }
@@ -28,7 +29,7 @@ public class InputView {
         System.out.println(ATTEMPT_PROMPT_MESSAGE);
         String tryNumber = Console.readLine();
 
-        ValidateInputData.validateTryNumberIsCorrect(tryNumber);
+        TryNumberValidator.validateTryNumberIsCorrect(tryNumber);
 
         return Integer.parseInt(tryNumber);
     }

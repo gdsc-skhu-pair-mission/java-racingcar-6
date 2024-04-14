@@ -26,23 +26,7 @@ class CarTest {
 
     @Test
     void 차량_이동_테스트() {
-        car.move(true);
+        car.move();
         assertEquals(1, car.getDistance());
     }
-
-    @Test
-    void 차량_이동거리_표시_테스트_1() {
-        car.move(true); // 이동 거리: 1
-        car.move(true); // 이동 거리: 2
-        assertEquals("--", String.valueOf(car.getMoveAmount()));
-    }
-
-    @Test
-    void 차량_이동거리_표시_테스트_2() {
-        car.move(true); // 이동 거리: 1
-        car.move(false); // 이동 거리 : 1
-        assertEquals("-", String.valueOf(car.getMoveAmount()));
-    }
-
-
 }

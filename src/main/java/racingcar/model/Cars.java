@@ -3,6 +3,7 @@ package racingcar.model;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
     private static Cars instance;
@@ -29,23 +30,32 @@ public class Cars {
         this.cars.add(new Car(name));
     }
 
+    public void addAllCar(List<String> carNames) {
+        for (String carName : carNames) {
+            addCar(carName);
+        }
+    }
+
     public List<Car> getCars() {
         return cars;
     }
 
     public void findWinners() {
-        sortCarsByDistance();
-        int maxDistance = cars.get(0).getDistance();
+        List<Car> sortedCars = sortCarsByDistance();
+        int maxDistance = sortedCars.get(0).getDistance();
 
-        int i = 0;
-        while (i < cars.size() && maxDistance == cars.get(i).getDistance()) {
-            winners.add(cars.get(i).getName());
-            i++;
-        }
+        winners = sortedCars.stream()
+                .filter(car -> car.getDistance() == maxDistance)
+                .map(Car::getName)
+                .collect(Collectors.toList());
+
     }
 
-    private void sortCarsByDistance() {
-        cars.sort(Comparator.comparingInt(Car::getDistance).reversed());
+    private List<Car> sortCarsByDistance() {
+
+        return new ArrayList<>(cars).stream()
+                .sorted(Comparator.comparingInt(Car::getDistance).reversed())
+                .collect(Collectors.toList());
     }
 }
 

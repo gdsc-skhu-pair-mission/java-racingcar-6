@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.model.Car;
+
 import java.util.List;
 
 public class OutputView {
@@ -18,8 +20,18 @@ public class OutputView {
         System.out.println(RUN_RESULT_MESSAGE);
     }
 
-    public void printMoveDistance(String carName, StringBuilder distance) {
-        System.out.println(carName + " : " + distance);
+    public void printMoveDistance(Car car) {
+        System.out.println(car.getName() + " : " + generateDistanceString(car.getDistance()));
+    }
+
+    private String generateDistanceString(final int distance) {
+        StringBuilder distanceString = new StringBuilder();
+
+        for (int i = 0; i < distance; i++) {
+            distanceString.append("-");
+        }
+
+        return distanceString.toString();
     }
 
     public void lineChanging() {
