@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import racingcar.model.Car;
 import racingcar.model.RandomNumber;
-import racingcar.model.Winner;
+import racingcar.model.WinnerChecking;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -12,12 +12,12 @@ public class RaceGameController {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private final Winner winner;
+    private final WinnerChecking winnerChecking;
 
-    public RaceGameController(InputView inputView, OutputView outputView, Winner winner) {
+    public RaceGameController(InputView inputView, OutputView outputView, WinnerChecking winnerChecking) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.winner = winner;
+        this.winnerChecking = winnerChecking;
     }
 
     public void playRaceGame() {
@@ -30,7 +30,7 @@ public class RaceGameController {
             outputView.roundResult(carList);
         }
 
-        List<Car> winnerList = winner.getWinner(carList);
+        List<Car> winnerList = winnerChecking.getWinner(carList);
         outputView.finalWinner(winnerList);
     }
 

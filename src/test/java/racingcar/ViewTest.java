@@ -20,7 +20,7 @@ public class ViewTest {
     }
 
     @Test
-    void 자동차_이름_성공() {
+    void 자동차_이름_성공한_경우() {
         String input = "pobi,poro,kero";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);

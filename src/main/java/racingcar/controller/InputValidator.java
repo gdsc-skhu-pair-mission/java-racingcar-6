@@ -3,6 +3,8 @@ package racingcar.controller;
 import java.util.List;
 
 public class InputValidator {
+
+    private InputValidator() {}
     private static final int MAX_CAR_NAME_LENGTH = 5;
 
     public static void verifyCarNames(List<String> nameList) {
