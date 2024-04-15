@@ -1,8 +1,6 @@
 package racingcar.controller;
 
 import racingcar.model.Car;
-import racingcar.model.RandomNumber;
-import racingcar.model.WinnerChecking;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -25,7 +23,7 @@ public class RaceGameController {
         int tryCount = inputView.getTryCount();
 
         outputView.resultMessage();
-        while (tryCount -- > 0) {
+        while (tryCount-- > 0) {
             carList.forEach(this::playMoveCar);
             outputView.roundResult(carList);
         }
