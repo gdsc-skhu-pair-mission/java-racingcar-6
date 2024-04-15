@@ -21,13 +21,13 @@ public class RacingGame {
     }
 
     // 게임 시작 메소드
-    public void StartGame() {
+    public void startGame() {
         outputview.StartMessage(); //  게임 시작 안내문 출력
         cars = inputview.CarNameInput(); // 자동차 이름 입력받기
     }
 
     // 게임 진행 메소드
-    public void GameProcess() {
+    public void gameProcess() {
         outputview.CountMessage(); // 게임 진행 횟수 안내문 출력
         int count = inputview.countInput(); // 시도할 횟수 입력받기
         outputview.ResultMessage(); // 게임 결과 안내문 출력
@@ -41,7 +41,7 @@ public class RacingGame {
                     car.CarMove();
                 }
                 // 자동차 이동한 거리 출력
-                System.out.printf("%s : %s\n", car.getName(), outputview.GoMessage().repeat(car.getDistance()));
+                System.out.printf("%s : %s\n", car.getName(), outputview.renderForward().repeat(car.getDistance()));
 
             }
             // 게임 횟수 구분하기 위해 개행 추가

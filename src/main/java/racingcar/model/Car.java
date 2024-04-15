@@ -1,8 +1,11 @@
 package racingcar.model;
 
+import java.util.List;
+
 public class Car {
     private String name;
     private int distance;
+    private List<Car> cars;
 
     public String getName() {
         return name;

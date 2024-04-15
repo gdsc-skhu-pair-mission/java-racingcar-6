@@ -17,7 +17,7 @@ public class Outputview {
         System.out.println("실행 결과");
     }
 
-    public String GoMessage(){
+    public String renderForward(){
         return "-";
     }
 
