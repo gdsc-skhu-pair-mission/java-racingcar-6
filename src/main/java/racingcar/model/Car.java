@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import racingcar.exception.ErrorMessage;
-import racingcar.exception.InputValidator;
 
 public class Car {
     private String name;

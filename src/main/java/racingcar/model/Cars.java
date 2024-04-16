@@ -46,5 +46,6 @@ public class Cars {
     private void sortCarsByDistance() {
         cars.sort(Comparator.comparingInt(Car::getDistance).reversed());
     }
+
 }
 
