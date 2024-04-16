@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import java.util.Arrays;
 import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.model.MoveDecider;
@@ -28,9 +29,7 @@ public class RaceController {
 
     private void addCarsFromInput() {
         String[] names = inputView.inputRacingCarName();
-        for (String name : names) {
-            cars.addCar(new Car(name));
-        }
+        Arrays.stream(names).map(Car::new).forEach(cars::addCar);
     }
 
     private void getAllRounds() {
@@ -54,4 +53,5 @@ public class RaceController {
         cars.findWinners();
         outputView.printFinalWinner(cars.getWinners());
     }
+
 }
