@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.model.Car;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -10,10 +11,8 @@ import java.util.Set;
 
 
 public class Inputview {
-    // 자동차 이름 입력을 처리하고, 입력받은 자동차 이름 리스트를 반환하는 메소드
-    public List<Car> carNameInput() {
 
-        // 자동차 이름 입력 받기
+    public List<Car> carNameInput() {
         String carName = Console.readLine();
         // 입력 받은 자동차 이름을 리스트에 쉼표(,)를 기준으로 잘라서 대입
         List<String> carNames = Arrays.stream(carName.split(",")).toList();
@@ -29,6 +28,7 @@ public class Inputview {
         // 자동차 객체 리스트 반환
         return cars;
     }
+
     public int countInput() {
         // 정규 표현식 사용을 위해 String으로 시도할 횟수 입력 받기
         String stringCount = Console.readLine();

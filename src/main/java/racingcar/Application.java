@@ -16,7 +16,7 @@ public class Application {
         // 게임 시작
         racingGame.startGame();
         // 게임 진행
-        racingGame.gameProcess();
+        racingGame.carMoving();
         // 우승자 판별
         racingGame.winner();
 
