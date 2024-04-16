@@ -19,6 +19,5 @@ public class Application {
         racingGame.carMoving();
         // 우승자 판별
         racingGame.winner();
-
     }
 }
