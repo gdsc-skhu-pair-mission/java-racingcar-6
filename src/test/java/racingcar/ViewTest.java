@@ -30,4 +30,16 @@ public class ViewTest {
 
         assertThat(result).isEqualTo(Arrays.asList("pobi", "poro", "kero"));
     }
+
+
+    @Test
+    void 시도_횟수_성공() {
+        String input = "5";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        int tryCount = inputView.getTryCount();
+
+        assertThat(tryCount).isEqualTo(5);
+    }
 }

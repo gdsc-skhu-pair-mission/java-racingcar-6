@@ -21,6 +21,13 @@ public class InputValidatorTest {
     }
 
     @Test
+    void 자동차_이름_빈_문자열() {
+        assertThatThrownBy(() -> InputValidator.verifyCarNames(Arrays.asList("")))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+
+    @Test
     void 시도_횟수_빈_문자열() {
         String emptyTryCount = "";
         assertThatThrownBy(() -> InputValidator.validateTryCount(emptyTryCount))
