@@ -20,7 +20,7 @@ public class InputValidator {
 
     private static void validateDuplicateCarName(List<String> nameList) {
         if (nameList.size() > nameList.stream().distinct().count()) {
-            throw new IllegalArgumentException("중복된 이름입니다.");
+            throw new IllegalArgumentException ("중복된 이름입니다.");
         }
     }
 
