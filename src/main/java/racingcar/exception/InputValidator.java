@@ -5,11 +5,7 @@ import java.util.Set;
 
 public class InputValidator {
 
-    public static void validateCarName(String carNames) {
-        validateCarNameEmpty(carNames);
-        validateCarNameHasBlank(carNames);
-        validateCarNameLength(carNames);
-    }
+
 
     public static void validateCarNameDuplicated(String[] carNames) {
         Set<String> carNameSet = new HashSet<>();
@@ -19,27 +15,6 @@ public class InputValidator {
             }
         }
     }
-
-    private static void validateCarNameEmpty(String carName) {
-        if (carName.contains(" ")) {
-            throw new IllegalArgumentException(ErrorMessage.NOT_ALLOW_EMPTY.getMessage());
-        }
-    }
-
-    private static void validateCarNameHasBlank(String carName) {
-        if (carName.isEmpty()) {
-            throw new IllegalArgumentException(ErrorMessage.NOT_ALLOW_BLANK.getMessage());
-        }
-    }
-
-    private static void validateCarNameLength(String carName) {
-        final int LENGTH_LIMIT_NUMBER = 5;
-
-        if (carName.length() > LENGTH_LIMIT_NUMBER) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_LENGTH.getMessage());
-        }
-    }
-
 
     public static void validateTryNumber(String tryNumber) {
         validateTryNumberIsNotInt(tryNumber);
@@ -67,4 +42,5 @@ public class InputValidator {
             throw new IllegalArgumentException(ErrorMessage.NOT_ALLOW_EMPTY.getMessage());
         }
     }
+
 }
