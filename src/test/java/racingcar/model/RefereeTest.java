@@ -47,9 +47,9 @@ class RefereeTest extends NsTest {
         cars.add(new Car("인호"));
         cars.add(new Car("페어"));
 
-        cars.get(0).setMovement(4);
-        cars.get(1).setMovement(2);
-        cars.get(2).setMovement(1);
+        cars.get(0).move(4);
+        cars.get(1).move(2);
+        cars.get(2).move(1);
 
         // when (기능 작동)
         List<Car> winnerCars = referee.judgementWinnerCars(cars);

@@ -57,7 +57,7 @@ public class RacingCarGameController {
 
     private void carsMovement(List<Car> cars) {
         for (Car car : cars) {
-            car.setMovement(Random.createRandomNumber());
+            car.move(Random.createRandomNumber());
         }
     }
 

@@ -22,7 +22,7 @@ public class Car {
         return movement;
     }
 
-    public void setMovement(int number) {
+    public void move(int number) {
         if (number >= MIN_FORWARD_REQUIREMENT) {
             movement++;
         }

@@ -59,7 +59,7 @@ class CarTest extends NsTest {
         Car car = new Car("test");
 
         // when
-        car.setMovement(6);
+        car.move(4);
 
         // then
         assertThat(car).extracting("movement").isEqualTo(1);
@@ -72,7 +72,7 @@ class CarTest extends NsTest {
         Car car = new Car("test");
 
         // when
-        car.setMovement(3);
+        car.move(3);
 
         // then
         assertThat(car).extracting("movement").isEqualTo(0);
