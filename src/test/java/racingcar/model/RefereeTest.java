@@ -43,13 +43,13 @@ class RefereeTest extends NsTest {
     void should_ReturnWinner_ForLargestPosition() {
         // given (주어진 값)
         List<Car> cars = new ArrayList<>();
-        cars.add(new Car("소정", 0));
-        cars.add(new Car("인호", 0));
-        cars.add(new Car("페어", 0));
+        cars.add(new Car("소정"));
+        cars.add(new Car("인호"));
+        cars.add(new Car("페어"));
 
-        cars.get(0).moveCar(4);
-        cars.get(1).moveCar(2);
-        cars.get(2).moveCar(1);
+        cars.get(0).setMovement(4);
+        cars.get(1).setMovement(2);
+        cars.get(2).setMovement(1);
 
         // when (기능 작동)
         List<Car> winnerCars = referee.judgementWinnerCars(cars);

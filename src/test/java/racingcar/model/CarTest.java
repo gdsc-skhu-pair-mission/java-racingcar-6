@@ -56,10 +56,10 @@ class CarTest extends NsTest {
     @DisplayName("moveCar() 메소드, 인자가 4이상일 경우 전진")
     void should_Move_When_Factor4OrHigher() {
         // given
-        Car car = new Car("test", 0);
+        Car car = new Car("test");
 
         // when
-        car = car.moveCar(4);
+        car.setMovement(6);
 
         // then
         assertThat(car).extracting("movement").isEqualTo(1);
@@ -69,10 +69,10 @@ class CarTest extends NsTest {
     @DisplayName("moveCar() 메소드, 인자가 4미만일 경우 멈춤")
     void should_Stop_When_FactorLessThan4() {
         // given
-        Car car = new Car("test", 0);
+        Car car = new Car("test");
 
         // when
-        car.moveCar(3);
+        car.setMovement(3);
 
         // then
         assertThat(car).extracting("movement").isEqualTo(0);
