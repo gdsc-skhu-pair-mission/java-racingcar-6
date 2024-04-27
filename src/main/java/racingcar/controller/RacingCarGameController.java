@@ -22,23 +22,35 @@ public class RacingCarGameController {
     }
 
     public void start() {
-        String inputCarNames = inputView.getCarNames();
+        createCars(inputView.getCarNames());
 
+        Referee referee = createReferee();
+
+        racing(referee);
+
+        printWinners(referee);
+    }
+
+    private void createCars(String inputCarNames) {
         checkInputCarNames(inputCarNames);
-
-        List<String> carNames= Parser.parseStringToList(inputCarNames);
-
+        List<String> carNames = Parser.parseStringToList(inputCarNames);
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
+    }
 
-        Referee referee = new Referee(inputView.getNumberOfRound());
-
+    private void racing(Referee referee) {
         outputView.printNewline();
         outputView.printResultMessage();
 
         carsMovementProgress(referee);
+    }
 
+    private Referee createReferee() {
+        return new Referee(inputView.getNumberOfRound());
+    }
+
+    private void printWinners(Referee referee) {
         outputView.printWinners(referee.judgementWinnerCars(cars));
     }
 
