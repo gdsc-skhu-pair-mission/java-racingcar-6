@@ -5,6 +5,9 @@ import java.util.stream.Collectors;
 
 public class Judgement {
 
+    private Judgement() {
+    }
+
     public static List<String> getWinners(Cars cars) {
         int maxPosition = getMaxPosition(cars);
         return cars.cars()
@@ -20,9 +23,6 @@ public class Judgement {
                 .mapToInt(Car::getPosition)
                 .max()
                 .orElseThrow();
-    }
-
-    private Judgement() {
     }
 
 }
